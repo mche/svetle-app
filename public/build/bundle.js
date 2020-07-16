@@ -328,13 +328,13 @@ var app = (function () {
     			a = element("a");
     			a.textContent = "Svelte tutorial";
     			t6 = text(" to learn how to build Svelte apps.");
-    			attr_dev(h1, "class", "svelte-1tky8bj");
-    			add_location(h1, file, 5, 1, 46);
+    			attr_dev(h1, "class", "svelte-1ja961e");
+    			add_location(h1, file, 5, 2, 48);
     			attr_dev(a, "href", "https://svelte.dev/tutorial");
-    			add_location(a, file, 6, 14, 83);
-    			add_location(p, file, 6, 1, 70);
-    			attr_dev(main, "class", "svelte-1tky8bj");
-    			add_location(main, file, 4, 0, 38);
+    			add_location(a, file, 6, 15, 86);
+    			add_location(p, file, 6, 2, 73);
+    			attr_dev(main, "class", "svelte-1ja961e");
+    			add_location(main, file, 4, 0, 39);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -432,7 +432,7 @@ var app = (function () {
     const app = new App({
     	target: document.body,
     	props: {
-    		name: 'мир'
+    		name: 'sweet Dolly'
     	}
     });
 
