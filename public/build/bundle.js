@@ -348,7 +348,7 @@
     	let t2;
     	let div0;
     	let t3;
-    	let t4_value = (/*el2*/ ctx[2] && /*el2*/ ctx[2].innerHTML) + "";
+    	let t4_value = (/*el2*/ ctx[2] && /*el2*/ ctx[2].parentElement.innerHTML) + "";
     	let t4;
     	let t5;
     	let div1;
@@ -376,7 +376,7 @@
     			add_location(span, file, 2, 2, 55);
     			add_location(p, file, 0, 0, 0);
     			add_location(div0, file, 4, 0, 99);
-    			add_location(div1, file, 5, 0, 157);
+    			add_location(div1, file, 5, 0, 171);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -404,7 +404,7 @@
     		},
     		p: function update(ctx, [dirty]) {
     			if (dirty & /*text*/ 1) set_data_dev(t1, /*text*/ ctx[0]);
-    			if (dirty & /*el2*/ 4 && t4_value !== (t4_value = (/*el2*/ ctx[2] && /*el2*/ ctx[2].innerHTML) + "")) set_data_dev(t4, t4_value);
+    			if (dirty & /*el2*/ 4 && t4_value !== (t4_value = (/*el2*/ ctx[2] && /*el2*/ ctx[2].parentElement.innerHTML) + "")) set_data_dev(t4, t4_value);
     			if (dirty & /*el1*/ 2 && t7_value !== (t7_value = (/*el1*/ ctx[1] && /*el1*/ ctx[1].innerHTML) + "")) set_data_dev(t7, t7_value);
     		},
     		i: noop,
@@ -438,8 +438,8 @@
     	let el1, el2;
 
     	function handleClick(event) {
-    		//~     console.log(el1, el2);
-    		$$invalidate(1, el1.innerHTML = text, el1);
+    		//~     console.log(el2.parentElement);
+    		$$invalidate(2, el2.innerHTML = text, el2);
     	}
 
     	const writable_props = ["text"];
@@ -454,7 +454,7 @@
     	function div0_binding($$value) {
     		binding_callbacks[$$value ? "unshift" : "push"](() => {
     			el1 = $$value;
-    			$$invalidate(1, el1);
+    			($$invalidate(1, el1), $$invalidate(2, el2));
     		});
     	}
 
@@ -480,6 +480,12 @@
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*el2*/ 4) {
+    			 $$invalidate(1, el1 = el2);
+    		}
+    	};
 
     	return [text, el1, el2, handleClick, div0_binding, div1_binding];
     }
@@ -801,7 +807,7 @@
 
     let props = {
       //~ Vue,
-      name: 'Название сайта',
+      name: 'Svelte app',
       "head": {
         "title": 'заголовок',
       },

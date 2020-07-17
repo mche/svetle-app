@@ -6,7 +6,7 @@ import Head from './Head.svelte';
 
 let props = {
   //~ Vue,
-  name: 'Название сайта',
+  name: 'Svelte app',
   "head": {
     "title": 'заголовок',
   },
