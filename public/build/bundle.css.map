@@ -2,11 +2,13 @@
   "version": 3,
   "file": "bundle.css",
   "sources": [
-    "../../App.svelte"
+    "../../App.svelte",
+    "../../FooComponent.svelte"
   ],
   "sourcesContent": [
-    "<script>\n  export let name;\n</script>\n\n<main>\n  <h1>Hello {name}!</h1>\n  <p>Visit the <a href=\"https://svelte.dev/tutorial\">Svelte tutorial</a> to learn how to build Svelte apps.</p>\n</main>\n\n<style>\n  main {\n    text-align: center;\n    padding: 1em;\n    max-width: 240px;\n    margin: 0 auto;\n  }\n\n  h1 {\n    color: #ff3e00;\n    /*text-transform: uppercase;*/\n    font-size: 4em;\n    font-weight: 100;\n  }\n\n  @media (min-width: 640px) {\n    main {\n      max-width: none;\n    }\n  }\n</style>"
+    "<main>\n  <h1 on:click={handleClick}>{name}!</h1>\n  <div>{ JSON.stringify(head)}</div>\n  <!--p>Visit the <a href=\"https://svelte.dev/tutorial\">Svelte tutorial</a> to learn how to build Svelte apps.</p-->\n  <FooComponent1 text=\"{head.title}\"/>\n</main>\n\n\n\n<script>\n//~   import Vue from 'vue';\n  import FooComponent1 from './components/FooComponent.svelte';\n//~   console.log('FooComponent', FooComponent) ;\n  export let name;\n  export let head;\n  \n  function handleClick(event) {\n    name += ' Х';\n    head.title = name;\n  }\n//~   $: head.title = name;\n  $: document.title = name;\n//~   setTimeout(()=>{  }, 1000);\n  \n//~   console.log(new Vue());\n  \n</script>\n\n\n<style>\n  main {\n    text-align: center;\n    padding: 1em;\n    max-width: 240px;\n    margin: 0 auto;\n  }\n\n  h1 {\n    color: #ff3e00;\n    /*text-transform: uppercase;*/\n    font-size: 5em;\n    font-weight: 100;\n  }\n\n  @media (min-width: 640px) {\n    main {\n      max-width: none;\n    }\n  }\n</style>",
+    "<p on:click={handleClick}>\n  FooComponent prop text:\n  <span class=\"green-text\">{text}</span>\n</p>\n<div bind:this={el1}> EL2: { el2 && el2.innerHTML }</div>\n<div bind:this={el2}> EL1: { el1 && el1.innerHTML }</div>\n\n<script>\n//~   export let foo;\n  export let text;\n  let el1, el2;\n  \n  function handleClick(event){\n//~     console.log(el1, el2);\n    el1.innerHTML = text;\n  }\n  \n  \n  \n</script>\n\n<style>\n.green-text {color: green;}\n</style>"
   ],
   "names": [],
-  "mappings": "AAUE,IAAI,eAAC,CAAC,AACJ,UAAU,CAAE,MAAM,CAClB,OAAO,CAAE,GAAG,CACZ,SAAS,CAAE,KAAK,CAChB,MAAM,CAAE,CAAC,CAAC,IAAI,AAChB,CAAC,AAED,EAAE,eAAC,CAAC,AACF,KAAK,CAAE,OAAO,CAEd,SAAS,CAAE,GAAG,CACd,WAAW,CAAE,GAAG,AAClB,CAAC,AAED,MAAM,AAAC,YAAY,KAAK,CAAC,AAAC,CAAC,AACzB,IAAI,eAAC,CAAC,AACJ,SAAS,CAAE,IAAI,AACjB,CAAC,AACH,CAAC"
+  "mappings": "AA8BE,IAAI,eAAC,CAAC,AACJ,UAAU,CAAE,MAAM,CAClB,OAAO,CAAE,GAAG,CACZ,SAAS,CAAE,KAAK,CAChB,MAAM,CAAE,CAAC,CAAC,IAAI,AAChB,CAAC,AAED,EAAE,eAAC,CAAC,AACF,KAAK,CAAE,OAAO,CAEd,SAAS,CAAE,GAAG,CACd,WAAW,CAAE,GAAG,AAClB,CAAC,AAED,MAAM,AAAC,YAAY,KAAK,CAAC,AAAC,CAAC,AACzB,IAAI,eAAC,CAAC,AACJ,SAAS,CAAE,IAAI,AACjB,CAAC,AACH,CAAC;AC1BH,WAAW,cAAC,CAAC,KAAK,CAAE,KAAK,AAAC,CAAC"
 }

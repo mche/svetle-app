@@ -16,6 +16,9 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
-    "sirv-cli": "^0.4.4"
+    "@vue/compiler-sfc": "^3.0.0-beta.24",
+    "rollup-plugin-vue": "^6.0.0-beta.9",
+    "sirv-cli": "^0.4.4",
+    "vue": "^2.6.11"
   }
 }

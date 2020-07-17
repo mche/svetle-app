@@ -1,10 +1,25 @@
 import App from './App.svelte';
+import Head from './Head.svelte';
 
-const app = new App({
+//~ import Vue from 'vue';
+
+
+let props = {
+  //~ Vue,
+  name: 'Название сайта',
+  "head": {
+    "title": 'заголовок',
+  },
+};
+
+new App({
   target: document.body,
-  props: {
-    name: 'sweetly Dolly'
-  }
+  props,
 });
 
-export default app;
+new Head({
+  target: document.head,///.body,
+  props,
+});
+
+///export default app;

@@ -1,11 +1,31 @@
+<main>
+  <h1 on:click={handleClick}>{name}!</h1>
+  <div>{ JSON.stringify(head)}</div>
+  <!--p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p-->
+  <FooComponent1 text="{head.title}"/>
+</main>
+
+
+
 <script>
+//~   import Vue from 'vue';
+  import FooComponent1 from './components/FooComponent.svelte';
+//~   console.log('FooComponent', FooComponent) ;
   export let name;
+  export let head;
+  
+  function handleClick(event) {
+    name += ' Х';
+    head.title = name;
+  }
+//~   $: head.title = name;
+  $: document.title = name;
+//~   setTimeout(()=>{  }, 1000);
+  
+//~   console.log(new Vue());
+  
 </script>
 
-<main>
-  <h1>Hello {name}!</h1>
-  <p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
 
 <style>
   main {
@@ -18,7 +38,7 @@
   h1 {
     color: #ff3e00;
     /*text-transform: uppercase;*/
-    font-size: 4em;
+    font-size: 5em;
     font-weight: 100;
   }
 
