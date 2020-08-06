@@ -1,12 +1,11 @@
 import App from './App.svelte';
 import Head from './Head.svelte';
-
 //~ import Vue from 'vue';
 
 
 let props = {
   //~ Vue,
-  name: 'Svelte app',
+  name: 'All Glory to Gloria',
   "head": {
     "title": 'заголовок',
   },
