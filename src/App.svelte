@@ -21,7 +21,7 @@ $ surge /path/to/svelte-app/public mche.us.to
 
 
   </div>
-  <p><a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+  <p><a href="https://ru.svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
   <!--FooComponent1 text="{head.title}"/-->
 </main>
 
@@ -29,7 +29,7 @@ $ surge /path/to/svelte-app/public mche.us.to
 
 <script>
 //~   import Vue from 'vue';
-//~   import debounce from 'underscore';
+  ///import { debounce } from 'underscore/modules/index';
   //import FooComponent1 from './components/FooComponent.svelte';
 //~   console.log('FooComponent', FooComponent) ;
   export let name;
@@ -40,7 +40,7 @@ $ surge /path/to/svelte-app/public mche.us.to
     name = ' ¡ ' +name + ' ! ';
 //~     console.log('name', name);
     ///head.title = name;
-  };///, 1000);
+  };//, 1000, true);
   
 //~   $: head.title = name;
   $: document.title = name;
