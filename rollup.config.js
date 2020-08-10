@@ -4,6 +4,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 //~ import vue from 'rollup-plugin-vue';
+import { sass } from 'svelte-preprocess-sass';
 
 
 const production = !process.env.ROLLUP_WATCH;
@@ -25,7 +26,10 @@ export default {
       // a separate file - better for performance
       css: css => {
         css.write('public/build/bundle.css');
-      }
+      },
+      "preprocess": {
+        style: sass({}, { name: 'scss' }),
+      },
     }),
 
     // If you have external dependencies installed from

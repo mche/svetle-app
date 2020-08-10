@@ -7,7 +7,7 @@ let props = {
   //~ Vue,
   name: 'All Glory to Gloria',
   "head": {
-    "title": 'заголовок',
+    "title": 'mche.us.to',
   },
 };
 
