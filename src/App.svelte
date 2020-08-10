@@ -5,8 +5,8 @@
   </div>
   <h1><span class="svelt-color">{head.title}</span> доброго всем</h1>
   
-  <p><a href="https://ru.svelte.dev/tutorial">Svelte учебник</a> - официальный русскоязычный сайтег.</p>
-  <p><a href="https://t.me/sveltejs">Телеграм Свелт</a> - официальный русскоязычый канал.</p>
+  <p><a href="https://ru.svelte.dev/tutorial">Svelte учебник</a> - на официальном русскоязычном сайтеге.</p>
+  <p><a href="https://t.me/sveltejs">Телеграм Свелт</a> - официальный русскоязычный канал.</p>
   
   <h3><a  on:click={ Click }  href="javascript:" class="svelt-color">{name2}</a></h3>
   <!--div>{ JSON.stringify(head)}</div-->
