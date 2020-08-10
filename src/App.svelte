@@ -3,12 +3,12 @@
     <Clock />
     Это SVG-часы Свелт-компонент.
   </div>
-  <h1>Доброго всем</h1>
+  <h1><span class="svelt-color">{head.title}</span> доброго всем</h1>
   
   <p><a href="https://ru.svelte.dev/tutorial">Svelte учебник</a> - официальный русскоязычный сайтег.</p>
   <p><a href="https://t.me/sveltejs">Телеграм Свелт</a> - официальный русскоязычый канал.</p>
   
-  <h3><a  on:click={ Click }  href="javascript:" class="red-text">{name2}</a></h3>
+  <h3><a  on:click={ Click }  href="javascript:" class="svelt-color">{name2}</a></h3>
   <!--div>{ JSON.stringify(head)}</div-->
   <p>Создал Свелт-приложение из  <a href="https://github.com/sveltejs/template">шаблона</a> ... и пошло-поехало, все закрутилось ...</p>
   <p class="code">
@@ -42,7 +42,7 @@ $ surge /path/to/svelte-app/public mche.us.to
   import Clock from './components/Clock.svelte';
 //~   console.log('FooComponent', FooComponent) ;
   export let name;
-//~   export let head;
+  export let head;
 
 
   const Click = (event) => {
@@ -69,9 +69,10 @@ $ surge /path/to/svelte-app/public mche.us.to
     /*text-transform: uppercase;*/
     font-size: 3em;
     font-weight: 100;
+    margin:0;
   }
   
-  .red-text {
+  .svelt-color {
     color: #ff3e00;
   }
   
