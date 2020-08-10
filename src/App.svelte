@@ -10,7 +10,7 @@
   
   <h3><a  on:click={ Click }  href="javascript:" class="svelt-color">{name2}</a></h3>
   <!--div>{ JSON.stringify(head)}</div-->
-  <p>Создал Свелт-приложение из  <a href="https://github.com/sveltejs/template">шаблона</a> ... и пошло-поехало, все закрутилось ...</p>
+  <p>Создал Свелт-приложение из  <a href="https://github.com/sveltejs/template">шаблона</a> ... и пошло-поехало, и все закрутилось ...</p>
   <p class="code">
 $ cd /path/to/svelte-app
 $ npm run dev
