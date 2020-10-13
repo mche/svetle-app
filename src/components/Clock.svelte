@@ -6,12 +6,16 @@
   {#each [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55] as minute}
     <line  class="major {minute % 15  ? '' : 'major2' } { minute == seconds ? 'major-second-on' : '' }"  y1=-{(0.7+(minute % 15 ? 0 : -0.1))*r}  y2=-{0.8*r}  transform="rotate({6*minute})" />
     {#each [1, 2, 3, 4] as offset}
-      <circle class="minor { minute+offset == seconds ? 'minor-second-on' : '' }" r=1 cy={ Math.sin(ItemRadian(minute + offset-15))*(r-(0.22*r)) } cx={ Math.cos(ItemRadian(minute + offset-15))*(r-(0.22*r)) } />
+      <circle class="minor { minute+offset == seconds ? 'minor-second-on' : '' }" r={minute+offset == seconds ? 2 : 1} cy={ Math.sin(ItemRadian(minute + offset-15))*(r-(0.22*r)) } cx={ Math.cos(ItemRadian(minute + offset-15))*(r-(0.22*r)) } />
     {/each}
   {/each}
 
   <!-- часовая стрелка -->
-  <line class="hour" y1=2 y2={-0.4*r} transform="rotate({ 30 * hours + minutes / 2 })" />
+  <!-- line class="hour" y1=2 y2=-{0.4*r} transform="rotate({ (30*hours + minutes / 2) })" / -->
+  <g class="hour" transform="rotate({ 30 * hours + minutes / 2 })" >
+    <line y1=2 y2={-0.4*r} />
+    <circle r=7 cy=-25></circle>
+  </g>
 
   <!-- минутная стрелка -->
   <line class="minute" y1=4 y2={-0.6*r} transform="rotate({ 6 * minutes + seconds / 10 })" />
@@ -25,15 +29,10 @@
     {#if !(seconds%2) }<text x=-1 y={0.5*r} class="digits tick">:</text>{/if}
     <text x=4 y={0.5*r} class="digits">{ minutes.toString().length === 1 ? '0'+minutes.toString() : minutes }</text>
 </svg>
-<!--div>{ classMinuteOn[seconds] }</div-->
-<!--{#each [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55] as minute}
-<span class="{ minute == seconds ? 'second-on' : '' }">
-  {minute} сек
-</span>
-{/each}-->
+
 
 <script>
-  import { onMount } from "svelte";
+  ///import { onMount } from "svelte";
 
   let time = new Date();
   let r = 100;/// радиус циферблата 
@@ -45,7 +44,7 @@
   $: seconds = time.getSeconds();
   $: milliseconds = time.getMilliseconds();
 //~   $: classMinuteOn = Array(60).fill('').map((minute, idx) => {return idx == seconds ? 'major-second-on' : ''; });///console.log('$classMinuteOn', seconds)
-  const ItemRadian = (item)=>(2*Math.PI/60)*item;
+  const ItemRadian = (item)=>(2*Math.PI/60)*item;/// перевод 60 позиций в радианы безотносительно начала отсчета
   
   setInterval(() => {
       time = new Date();
@@ -98,6 +97,10 @@
   .hour {
     stroke: $clr1;
     stroke-width: 5;
+  }
+  .hour circle {
+    stroke-width: 2;
+    fill: $bg;
   }
 
   .minute {
