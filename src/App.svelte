@@ -8,29 +8,12 @@
   <p><a href="https://ru.svelte.dev/tutorial">Svelte учебник</a> - на официальном русскоязычном сайтеге.</p>
   <p><a href="https://t.me/sveltejs">Телеграм Свелт</a> - официальный русскоязычный канал.</p>
   
-  <h3><a  on:click={ Click }  href="javascript:" class="svelt-color">{name2}</a></h3>
-  <!--div>{ JSON.stringify(head)}</div-->
-  <p>Создал Свелт-приложение из  <a href="https://github.com/sveltejs/template">шаблона</a> ... и пошло-поехало, и все закрутилось ...</p>
-  <p class="code">
-$ cd /path/to/svelte-app
-$ npm run dev
-$ npm run build
-$ surge /path/to/svelte-app/public mche.us.to
 
-   Running as *******@********* (Student)
-
-        project: /path/to/svelte-app/public
-         domain: mche.us.to
-         upload: [====================] 100% eta: 0.0s (227 files, 3275006 bytes)
-            CDN: [====================] 100%
-
-             IP: 138.197.235.123
-
-   Success! - Published to mche.us.to
-
-
-  </p>
-
+{ #each posts as p }
+  <h2 class="center"><a  on:click={ Click(p) }  href="javascript:" class="gr-color">{ p.title }</a></h2>
+  <p>{@html p.html }</p>
+  <p class="code">{ p.code }</p>
+{ /each }
   <!--FooComponent1 text="{head.title}"/-->
 </main>
 
@@ -40,21 +23,28 @@ $ surge /path/to/svelte-app/public mche.us.to
 //~   import Vue from 'vue';
   ///import { debounce } from 'underscore/modules/index';
   import Clock from './components/Clock.svelte';
+  import посты from './посты.js';
 //~   console.log('FooComponent', FooComponent) ;
-  export let name;
+  ///export let name;
   export let head;
+  ///export let посты;
+  
+  $: posts = посты;
 
 
-  const Click = (event) => {
-    name = ' ¡ ' +name + ' ! ';
-//~     console.log('name', name);
-    ///head.title = name;
-  };//, 1000, true);
+  const Click = (post) => {
+    post.title = ' ¡ ' +post.title + ' ! ';
+//~     
+//~ посты.push({"title":'New'});
+    posts = posts;///!!!!
+//~ console.log('Click', посты);
+  };
   
 //~   $: head.title = name;
   ///$: document.title = name;
-  $: name2 = name.toUpperCase();
-  Click();
+ 
+/// $: name2 = name.toUpperCase();
+  ///Click();
   
 </script>
 
@@ -74,6 +64,12 @@ $ surge /path/to/svelte-app/public mche.us.to
   
   .svelt-color {
     color: #ff3e00;
+  }
+  .gr-color {
+    color: #1B5E20;
+  }
+  .center {
+    text-align: center;
   }
   
   .clock {
