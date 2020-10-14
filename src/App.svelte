@@ -3,16 +3,21 @@
     <Clock />
     Это SVG-часы Свелт-компонент.
   </div>
-  <h1><span class="svelt-color">{head.title}</span> доброго всем</h1>
+  <h1>
+    <Me />
+    <span class="svelt-color font-effect-3d-float">{head.title}</span>
+    <span>доброго всем</span>
+    
+  </h1>
   
   <p><a href="https://ru.svelte.dev/tutorial">Svelte учебник</a> - на официальном русскоязычном сайтеге.</p>
   <p><a href="https://t.me/sveltejs">Телеграм Свелт</a> - официальный русскоязычный канал.</p>
   
 
 { #each posts as p }
-  <h2 class="center"><a  on:click={ Click(p) }  href="javascript:" class="gr-color">{ p.title }</a></h2>
+  <h2 class="center-000"><a  on:click={ Click(p) }  href="javascript:" class="gr-color">{ p.title }</a></h2>
   <p>{@html p.html }</p>
-  <p class="code">{ p.code }</p>
+  <code class="code">{ p.code }</code>
 { /each }
   <!--FooComponent1 text="{head.title}"/-->
 </main>
@@ -23,6 +28,7 @@
 //~   import Vue from 'vue';
   ///import { debounce } from 'underscore/modules/index';
   import Clock from './components/Clock.svelte';
+  import Me from './components/Me.svelte';
   import посты from './посты.js';
 //~   console.log('FooComponent', FooComponent) ;
   ///export let name;
@@ -36,7 +42,7 @@
     post.title = ' ¡ ' +post.title + ' ! ';
 //~     
 //~ посты.push({"title":'New'});
-    posts = posts;///!!!!
+    posts = posts;///!!!! реактивность массива
 //~ console.log('Click', посты);
   };
   
@@ -49,10 +55,14 @@
 </script>
 
 
-<style>
+<style lang="scss">
   main {
     padding: 1em;
     /*margin: 0 auto;*/
+  }
+  
+  .font-effect-3d-float {
+      text-shadow: 0 0.15em 0.11em rgba(0, 0, 0, 0.15), 0 0.25em 0.021em rgba(0, 0, 0, 0.1), 0 0.32em 0.32em rgba(0, 0, 0, 0.1);
   }
 
   h1 {
@@ -60,6 +70,9 @@
     font-size: 3em;
     font-weight: 100;
     margin:0;
+  }
+  h2 {
+    font-weight: 500;
   }
   
   .svelt-color {
@@ -78,7 +91,8 @@
   }
   
   .code {
-    padding: 0.5rem;
+    display:block;
+    padding: 0 0.5rem;
     white-space: pre-wrap;
     text-align: left;
     background-color: black;
