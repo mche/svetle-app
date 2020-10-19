@@ -14,7 +14,7 @@
   <!-- line class="hour" y1=2 y2=-{0.4*r} transform="rotate({ (30*hours + minutes / 2) })" / -->
   <g class="hour" transform="rotate({ 30 * hours + minutes / 2 })" >
     <line y1=2 y2={-0.4*r} />
-    <circle r=7 cy=-25></circle>
+    <circle r=9 cy=-25></circle>
   </g>
 
   <!-- минутная стрелка -->

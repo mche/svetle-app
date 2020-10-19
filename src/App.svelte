@@ -1,10 +1,10 @@
 <main>
   <div class="clock">
     <Clock />
-    Это SVG-часы Свелт-компонент.
+    <div>Это SVG-часы Свелт-компонент.</div>
   </div>
   <h1>
-    <Me />
+    <span><Me /></span>
     <span class="svelt-color font-effect-3d-float">{head.title}</span>
     <span>доброго всем</span>
     
@@ -86,7 +86,7 @@
   }
   
   .clock {
-    width: 10rem;
+    width: 15rem;
     float: right;
   }
   
