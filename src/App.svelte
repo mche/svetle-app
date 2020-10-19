@@ -3,8 +3,8 @@
     <Clock />
     <div>Это SVG-часы Свелт-компонент.</div>
   </div>
-  <h1>
-    <span><Me /></span>
+  <h1 class="gr-color">
+    <span class="me"><Me /></span>
     <span class="svelt-color font-effect-3d-float">{head.title}</span>
     <span>доброго всем</span>
     
@@ -73,6 +73,11 @@
   }
   h2 {
     font-weight: 500;
+  }
+  
+  .me {
+    display:inline-block;
+    ///background-color:#f0ffff;
   }
   
   .svelt-color {
