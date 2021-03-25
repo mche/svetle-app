@@ -83,7 +83,7 @@
 
   .major {
     stroke: $clr3;
-    stroke-width: 1.5;
+    stroke-width: 3;
   }
   
   .major2 {/* 0,15,30,45 минуты */

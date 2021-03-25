@@ -17,7 +17,7 @@
 { #each posts as p }
   <h2 class="center-000"><a  on:click={ Click(p) }  href="javascript:" class="gr-color">{ p.title }</a></h2>
   <p>{@html p.html }</p>
-  <code class="code">{ p.code }</code>
+{#if !!p.code}<code class="code">{ p.code }</code>{/if}
 { /each }
   <!--FooComponent1 text="{head.title}"/-->
 </main>
